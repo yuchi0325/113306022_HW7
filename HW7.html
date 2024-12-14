@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HW5</title>
+    <style>
+        body {
+            background-color: beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: 330px 540px;
+            gap: 30px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 100%;
+        }
+        .left-panel {
+            height: 1150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .photo-panel {
+            background-image: url('photo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 50%;
+        }
+        .text-content {
+            padding: 20px;
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 50%;
+        }
+        .nccu-icon {
+            width: 280px;
+            align-self: flex-end;
+        }
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            gap: 20px;
+            height: 1150px;
+        }
+        .right-panel section {
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+        .right-panel h2 {
+            border-bottom: 2px solid lightgray;
+            padding-bottom: 5px;
+        }
+        .timeline .entry {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 10px; 
+            margin-bottom: 20px;
+        }
+        .timeline .year {
+            text-align: left; 
+            font-weight: bold;
+            color: darkblue;
+        }
+        .timeline .description {
+            text-align: left; 
+            color: darkslategray;
+        }
+        .homework-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .homework-list li {
+            display: grid;
+            grid-template-columns:  80px auto;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        .homework-list span {
+            font-weight: bold;
+            color: gray;
+        }
+        .homework-list a {
+            text-decoration: none;
+            color: darkgreen;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        .homework-list a:hover {
+            text-decoration: none;
+        }
+        .favorite-music .music-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .favorite-music .music-item {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            gap: 5px; 
+        }
+        .favorite-music img {
+            width: 50px; 
+            height: 50px; 
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .favorite-music a {
+            text-decoration: none;
+            color: darkblue;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .favorite-music a:hover {
+            text-decoration: none; 
+        }
+        .note {
+            font-size: 0.9em;
+            color: gray;
+            margin-top: 10px;
+        }
+        .edit-container {
+            margin-bottom: 20px;
+        }
+        .edit-container button, #add-music-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .add-music-form {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .add-music-form input {
+            padding: 5px;
+            font-size: 1rem;
+        }
+        .add-music-form button {
+            padding: 5px 10px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="left-panel">
+            <div class="photo-panel"></div>
+            <div class="text-content">
+                <section class="edit-container">
+                    <h1 id="display-name">JEREMY</h1>
+                    <input type="text" id="name-input" style="display: none;" />
+                    <button id="edit-button">edit</button>
+                </section>
+                <h2>About Me</h2>
+                <p>I am a freshman in the Department of Management Information Systems at National Chengchi University. I am interested in studying programming and computer science fundamentals. I have experience in writing Java, HTML, CSS.</p>
+                <h3>Contact</h3>
+                <p>113306022@g.nccu.edu.tw</p>
+                <img src="school.jpg" alt="NCCU Icon" class="nccu-icon">
+            </div>
+        </div>
+        <div class="right-panel">
+            <section class="education">
+                <h2>Education</h2>
+                <div class="timeline">
+                    <div class="entry">
+                        <span class="year">2024-now</span>
+                        <span class="description">National ChengChi University Department of MIS Computer Science</span>
+                    </div>
+                    <div class="entry">
+                        <span class="year">2021-2024</span>
+                        <span class="description">Shin Shing Senior High School</span>
+                    </div>
+                    <div class="entry">
+                        <span class="year">2018-2021</span>
+                        <span class="description">Shin Shing International School</span>
+                    </div>
+                </div>
+            </section>
+            <section class="homework-list">
+                <h2>Homework List</h2>
+                <ul>
+                    <li>
+                        <span>HW1-</span>
+                        <a href="https://github.com/yuchi0325/HW1.git">https://github.com/yuchi0325/HW1.git</a>
+                    </li>
+                    <li>
+                        <span>HW2-</span>
+                        <a href="https://github.com/yuchi0325/HW2.git">https://github.com/yuchi0325/HW2.git</a>
+                    </li>
+                    <li>
+                        <span>HW3-</span>
+                        <a href="https://github.com/yuchi0325/HW3.git">https://github.com/yuchi0325/HW3.git</a>
+                    </li>
+                    <li>
+                        <span>HW4-</span>
+                        <a href="https://github.com/yuchi0325/113306022_HW4.git">https://github.com/yuchi0325/113306022_HW4.git</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="favorite-music">
+                <h2>Favorite Music</h2>
+                <div class="music-row">
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=syFZfO_wfMQ">
+                            <img src="spotify.jpg" alt="music photo">
+                        </a>
+                        <p>Night changes</p>
+                    </div>
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=ekr2nIex040">
+                            <img src="spotify.jpg" alt="music photo">
+                        </a>
+                        <p>APT.</p>
+                    </div>
+                    <div class="music-item">    
+                        <a href="https://www.youtube.com/watch?v=_zv8Y94eLYI">
+                            <img src="spotify.jpg" alt="music photo">
+                        </a>
+                        <p>愛在夏天</p>
+                    </div>
+                    <div class="music-item">    
+                        <a href="https://www.youtube.com/watch?v=HQ_mU73VhEQ">
+                            <img src="spotify.jpg" alt="music photo">
+                        </a>
+                        <p>幾分之幾</p>
+                    </div>
+                </div>
+                <button id="add-music-button">add</button>
+                <form id="add-music-form" class="add-music-form">
+                    <input type="text" id="music-link" placeholder="Music Link" required />
+                    <input type="text" id="music-name" placeholder="Music Name" required />
+                    <button type="button" id="submit-music">Submit</button>
+                </form>
+                <p class="note">Note: These are some of my favorite songs because they inspire and motivate me during work!</p>
+            </section>
+        </div>
+    </div>
+    <script>
+        const editButton = document.getElementById("edit-button");
+        const displayName = document.getElementById("display-name");
+        const nameInput = document.getElementById("name-input");
+
+        editButton.addEventListener("click", () => {
+            if (editButton.textContent === "edit") {
+                nameInput.value = displayName.textContent;
+                displayName.style.display = "none";
+                nameInput.style.display = "block";
+                editButton.textContent = "save";
+            } else {
+                displayName.textContent = nameInput.value;
+                displayName.style.display = "block";
+                nameInput.style.display = "none";
+                editButton.textContent = "edit";
+            }
+        });
+        const addMusicButton = document.getElementById("add-music-button");
+        const addMusicForm = document.getElementById("add-music-form");
+        const musicList = document.getElementById("music-list");
+
+        addMusicButton.addEventListener("click", () => {
+            addMusicForm.style.display = addMusicForm.style.display === "none" ? "flex" : "none";
+        });
+
+        const submitMusicButton = document.getElementById("submit-music");
+        submitMusicButton.addEventListener("click", () => {
+            const musicLink = document.getElementById("music-link").value;
+            const musicName = document.getElementById("music-name").value;
+
+            if (musicLink && musicName) {
+                const musicItem = document.createElement("div");
+                musicItem.classList.add("music-item");
+
+                const musicAnchor = document.createElement("a");
+                musicAnchor.href = musicLink;
+                musicAnchor.target = "_blank";
+
+                const musicImg = document.createElement("img");
+                musicImg.src = "spotify.jpg";  
+                musicImg.alt = "music photo";
+                musicAnchor.appendChild(musicImg);
+                
+
+                const musicText = document.createElement("p");
+                musicText.textContent = musicName;
+
+                musicItem.appendChild(musicAnchor);
+                musicItem.appendChild(musicText);
+                document.querySelector('.favorite-music .music-row').appendChild(musicItem);
+
+                addMusicForm.reset();
+                addMusicForm.style.display = "none";
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    </script
+    </script>
+</body>
+</html>
